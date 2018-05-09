@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>用户登录</title>
+    <link rel="stylesheet" href="resources/css/easyui.css"/>
+    <link rel="stylesheet" href="resources/css/login.css"/>
+    <link rel="stylesheet" href="resources/css/icon.css"/>
+    <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="resources/js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="resources/js/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+<form id="signform" method="post">
+    <div class="lg-bd">
+        <div class="lg-hd">欢迎使用信息管理系统</div>
+        <div class="lg-hr"><hr /></div>
+        <div class="alert"><span></span></div>
+        <div style="margin-top:40px;margin-left:100px">
+            <span class="lg-label">工&nbsp;&nbsp;&nbsp;&nbsp;号:</span><input type="text" id="userId" name="userId" placeholder="请输入工号" class="easyui-validatebox textbox" style="margin:10px;width:150px;height:23px" data-options="iconCls:'icon-user'"/>
+        </div>
+        <div style="margin-left:100px">
+            <span class="lg-label">密&nbsp;&nbsp;&nbsp;&nbsp;码:</span><input type="password" id="userPwd" name="userPwd" placeholder="请输入密码" class="easyui-validatebox textbox" style="margin:10px;width:150px;height:23px" data-options="iconCls:'icon-lock'"/>
+        </div>
+        <div style="margin-top:10px;margin-left:100px">
+            <input type="submit" class="easyui-linkbutton" style="width:60px;height:25px" value="登录"/>
+            <input type="reset" class="easyui-linkbutton" style="width:60px;height:25px;margin-left:20px" value="重置"/>
+            <!-- <a href="../resources/admin/menu.jsp" class="easyui-linkbutton" style="width:60px">登录</a>
+            <a href="javascript:clear()" class="easyui-linkbutton" style="width:60px;margin-left:20px">重置</a> -->
+            <a href=""><span class="forget">忘记密码</span></a>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    /* function clear() {
+        $('#userId').textbox("setValue", "");
+        $('#password').textbox("setValue", "");
+    } */
+
+    //自定义校验规则
+    $.validator.addMethod("idCheck", function(value, element) {
+        var id = $('#userId').val();
+        $.ajax({
+            type: 'get',
+            url: '/user/getUserById',
+            async: false,
+            cache: false,
+            data: {
+                id: id
+            },
+            success:function(data) {
+                if(data == "true") {
+                    value = true;
+                } else {
+                    value = false;
+                }
+            },
+            error:function() {
+                $.messager.alert('信息提示', '服务器出错了', 'info');
+            }
+        });
+        return this.optional(element) || value;
+    },'用户不存在');
+
+    //自定义规则验证密码是否正确
+    $.validator.addMethod("pwdCheck", function(value, element) {
+        var id = $('#userId').val();
+        var password = $('#userPwd').val();
+        $.ajax({
+            type: 'get',
+            async: false,
+            cache: false,
+            url: '/user/getUserByIdAndPwd',
+            data: {
+                id: id,
+                password: password
+            },
+            success:function(data) {
+                if(data == "true") {
+                    value = true;
+                } else {
+                    value = false;
+                }
+            },
+            error:function(data) {
+                $.messager.alert('信息提示', '服务器不可用', 'info');
+            }
+        });
+        return this.optional(element) || value;
+    },'密码不正确');
+
+    $().ready(function(){
+        $('#signform').validate({
+            rules: {
+                userId: {
+                    required: true,
+                    idCheck: true
+                },
+                userPwd: {
+                    required: true,
+                    pwdCheck: true
+                }
+            },
+            messages: {
+                userId: {
+                    required: "该项为必填项",
+                    idCheck: "用户不存在"
+                },
+                userPwd: {
+                    required: "该项为必填项",
+                    pwdCheck: "密码不正确"
+                }
+            },
+            submitHandler:function() {
+                var menu = "menu";
+                window.location.href = "/user/toPage?page=" + menu;
+            }
+        });
+    });
+</script>
+</body>
+</html>
+

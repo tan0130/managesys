@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+html,body {
+	font-family: Microsoft Sans Serif;
+	background: url(../img/blue4.png) no-repeat;
+	background-size: 100%,100%
+}
+
+.lg-bd {
+	position: absolute;
+	margin-left: 33%;
+	margin-top: 15%;
+	width: 420px;
+	height: 300px;
+	border: 1px solid #000;
+	box-shadow: 2px 2px 3px #ddd, -2px 0 3px #ddd;
+	border-radius: 15px;
+}
+
+.lg-bd .lg-hd {
+	position: relative;
+	font-size: 30px;
+	padding-left: 16%;
+	padding-top: 6%;
+}
+
+.lg-bd .lg-hr{
+	color: #000;
+	padding-top: 10px;
+}
+
+.lg-bd .alert {
+	margin-top:10px;
+	margin-left:120px;
+	color:#F00;
+}
+.lg-bd .lg-label {
+	font-size: 14px;
+	margin-top: 2px;
+}
+.lg-bd .btn {
+	color:#0F0;
+}
+.lg-bd .forget {
+	margin-left: 10px;
+	font-size: 12px;
+}

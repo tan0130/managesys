@@ -1,0 +1,51 @@
+.application_cascade {
+	background:url('../icons/application_cascade.png') no-repeat center center;
+}
+
+.icon-search {
+	background:url('../icons/search.png') no-repeat center center;
+}
+.icon-reset {
+	background:url('../icons/reset.png') no-repeat center center;
+}
+
+.icon-car_error {
+	background:url('../icons/car_error.png') no-repeat center center;
+}
+.icon-ok {
+	background:url('../icons/ok.png') no-repeat center center;
+}
+
+.icon-add {
+	background:url('../icons/add.png') no-repeat center center;
+}
+.icon-arrow_refresh {
+	background:url('../icons/arrow_refresh.png') no-repeat center center;
+}
+.icon-user {
+	background:url('../icons/user.png') no-repeat center center;
+}
+.icon-lock {
+	background:url('../icons/lock.png') no-repeat center center;
+}
+.icon-password {
+	background:url('../icons/password.png') no-repeat center center;
+}
+.icon-remove {
+	background:url('../icons/edit_remove.png') no-repeat center center;
+}
+.icon-edit {
+	background:url('../icons/edit.gif') no-repeat center center;
+}
+.icon-cancel {
+	background:url('../icons/cancel.png') no-repeat center center;
+}
+.icon-reload {
+	background:url('../icons/reload.png') no-repeat center center;
+}
+.icon-redo {
+	background:url('../icons/redo.png') no-repeat center center;
+}
+.icon-undo {
+	background:url('../icons/undo.png') no-repeat center center;
+}

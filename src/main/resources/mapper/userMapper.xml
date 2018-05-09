@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper通过命名空间的名称来搜索userMapeper接口,接口的方法名和id名称一致，然后执行相应的sql语句进行相应的操作 -->
+<mapper namespace = "ssm.dao.UserDAO">
+    <!-- 获取所有用户信息 -->
+    <select id = "getAllUser" resultType="java.util.Map">
+		select * from user;
+	</select>
+
+    <!-- 根据id查询用户信息 -->
+    <!--<select id = "getUserByIdList" parameterType = "int" resultType = "java.util.Map">
+		select * from user where id = #{userId};
+	</select>-->
+
+    <!-- 根据id查询用户信息 -->
+    <select id="getUserById" parameterType="int" resultType="ssm.entity.User">
+		select * from user where id = #{userId};
+	</select>
+
+    <!-- 根据id和密码查询用户信息 -->
+    <select id = "getUserByIdAndPwd" parameterType = "ssm.entity.User" resultType="ssm.entity.User">
+		select * from user where id = #{0} and password=#{1};
+	</select>
+
+    <!-- 添加用户信息 -->
+    <!--<insert id = "addUser" parameterType = "entity.User">
+		insert into user(nickname,password,username,sex,tel,email,mark) values(#{nickName},#{userPwd},#{userName},#{sex},#{tel},#{email},#{mark});
+	</insert>
+
+    &lt;!&ndash; 删除用户信息 &ndash;&gt;
+    <delete id = "deleteUser" parameterType = "int">
+		delete from user where id = #{userId};
+	</delete>
+
+    &lt;!&ndash; 编辑用户信息 &ndash;&gt;
+    <update id = "editUser" parameterType = "entity.User">
+		update user set nickname=#{nickName},username=#{userName},sex=#{sex},tel=#{tel},email=#{email},mark=#{mark} where id = #{userId};
+	</update>
+
+    &lt;!&ndash; 修改密码 &ndash;&gt;
+    <update id = "editPassword" parameterType = "entity.User">
+		update user set password=#{userPwd} where id=#{userId};
+	</update>-->
+</mapper>

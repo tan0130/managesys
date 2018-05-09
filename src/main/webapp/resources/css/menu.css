@@ -1,0 +1,106 @@
+@charset "utf-8";
+/* CSS Document */
+html,body {
+	font-family: Microsoft YaHei;
+	width: 100%;
+	height: 100%;
+}
+
+a,
+a:link {
+	color: #000;
+	text-decoration: none;
+	outline: none;
+}
+a:hover,
+a:focus {
+	color: #39f;
+	text-decoration: none;
+}
+
+.menu-hd {
+	position: relative;
+	line-height: 11%;
+	height: 11%;
+	overflow:hidden;
+	background: #EFF5FF;	
+}
+
+.menu-hd .sys-name {
+	position: relative;
+	display: inline-block;
+	margin-left: 25%;
+	margin-top: 3%;
+	font-size: 26px;
+	font-family: Microsoft Sans Serif;
+}
+
+.menu-sidebar {
+	width: 13%;
+}
+
+.menu-tree a {
+	display: block;
+	font-size: 12px;
+}
+.menu-tree .tree-node {
+	padding: 5px 0px;
+}
+.menu-tree .tree-node-selected {
+	padding: 2px 0px;
+	border: 1px #fade23 solid;
+}
+
+.menu-footer {
+	height: 20px;
+	background: #e0ecff;
+	overflow: hidden;
+	text-align: center;
+	font-size: 14px;
+	padding: 5px;
+}
+.pwd-table {
+	margin-top: 10%;
+	margin-left: 30%;
+	width: 40%;
+	height: 40%;
+	border: 1px solid #000;
+	box-shadow: 2px 2px 3px #ddd, -2px 0 3px #ddd;
+	border-radius: 15px;
+}
+.pwd-table .tb-label {
+	font-size: 14px;
+	margin-left: 50px
+}
+.pwd-table input {
+	position: relative;
+	margin-left:2%;
+	margin-top: 2%;
+	height: 20px;
+	width: 18%;
+	
+}
+.pwd-table .btn1 {
+	position: relative;
+	margin-top: 3%;
+	margin-left:50px;
+	margin-bottom: 10px;
+	width: 10%;
+	height: 25px;
+}
+
+.pwd-table .btn2 {
+	position: relative;
+	margin-top: 3%;
+	margin-left: 6%;
+	margin-bottom: 10px;
+	width: 10%;
+	height: 25px;
+}
+
+.pwd-table .alert {
+	position: relative;
+	margin-top: 3%;
+	margin-left: 50px;
+	font-size: 14px;
+}
