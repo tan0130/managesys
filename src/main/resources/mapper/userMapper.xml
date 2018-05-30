@@ -19,7 +19,7 @@
 
     <!-- 根据id和密码查询用户信息 -->
     <select id = "getUserByIdAndPwd" parameterType = "ssm.entity.User" resultType="ssm.entity.User">
-		select * from user where id = #{0} and password=#{1};
+		select * from user where id = #{arg0} and password=#{arg1};
 	</select>
 
     <!-- 添加用户信息 -->

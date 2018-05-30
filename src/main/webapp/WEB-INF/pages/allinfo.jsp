@@ -94,7 +94,7 @@
     query();
     function query() {
 	 $('#tb').datagrid({
-	    	url:'../../../managesys/user/getAllUser',
+	    	url:'/user/getAllUser',
 	    	method: 'GET',
 			loadFilter:pagerFilter,	// 分页过滤器
 			//queryParams: params, // 传入查询参数
@@ -126,7 +126,7 @@
 	 // 添加人员信息
 	 function add() {
 		 $('#add-form').form('submit',{
-			url:'../../../managesys/user/addUser',
+			url:'/user/addUser',
 		 	success:function(data) {
 		 		if(data == "success") {
 		 			$.messager.alert('信息提示','添加成功！','info');

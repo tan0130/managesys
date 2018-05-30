@@ -27,7 +27,7 @@ public class UserController {
     private UserService userService;
 
     // 查询所有用户信息
-    @RequestMapping(value = "/getAllUser", method =RequestMethod.GET)
+    @RequestMapping(value = "/getAllUser", produces = "application/json; charset=utf-8",  method =RequestMethod.GET)
     @ResponseBody
     public String getAllUser() {
         try {
@@ -62,7 +62,7 @@ public class UserController {
     // 根据id和密码查询用户信息
     @RequestMapping(value = "/getUserByIdAndPwd", method = RequestMethod.GET)
     @ResponseBody
-    public String getUserByIdAndPwd(int id, String password) {
+    public synchronized String getUserByIdAndPwd(int id, String password) {
         try {
             if(userService.getUserByIdAndPwd(id, password) == null) {
                 return "false";
@@ -77,8 +77,6 @@ public class UserController {
     // id和密码正确实现页面跳转
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
-
-
         return "menu";
     }
 
@@ -90,7 +88,13 @@ public class UserController {
 
     // 页面跳转 pages文件夹下
     @RequestMapping(value = "/toPage1")
-    public String toPage1(String page) {
-        return "/pages/password";
+    public String toPage1() {
+        return "pages/password";
+    }
+
+    // 页面跳转 pages文件夹下的allinfo.jsp页面
+    @RequestMapping(value = "/toInfoPage")
+    public String toInfoPage() {
+        return "pages/allinfo";
     }
 }

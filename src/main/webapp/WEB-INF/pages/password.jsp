@@ -1,4 +1,10 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 
+</head>
+<body>
 <form id="signform" method="post">
     <div class="pwd-table">
     	<span class="tb-label">工号:</span><input type="text" id="userId" name="userId" class="easyui-validatebox textbox" style="margin-left:75px;width:150px"/><br/>
@@ -19,7 +25,7 @@ $.validator.addMethod("idCheck", function(value, element) {
 	var id = $('#userId').val();
 	$.ajax({
 		type: 'get',
-		url: '../../../managesys/user/getUserById',
+		url: '/user/getUserById',
 		async: false,
 		data: {
 			id: id
@@ -45,7 +51,7 @@ $.validator.addMethod("pwdCheck", function(value, element) {
 	$.ajax({
 		type: 'get',
 		async: false,
-		url: '../../../managesys/user/getUserByIdAndPwd',
+		url: '/user/getUserByIdAndPwd',
 		data: {
 			id: id,
 			password: password
@@ -137,4 +143,5 @@ $().ready(function(){
 	});	
 });
 </script>
-
+</body>
+</html>
